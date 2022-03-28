@@ -1,0 +1,200 @@
+2022/03/28-18:48:04 INFO  [main] com.jsh.erp.ErpApplication - Starting ErpApplication on FC73807 with PID 14444 (started by FC in D:\Project\Graduation Design\jshERP\jshERP-boot)
+2022/03/28-18:48:04 DEBUG [main] com.jsh.erp.ErpApplication - Running with Spring Boot v2.0.0.RELEASE, Spring v5.0.4.RELEASE
+2022/03/28-18:48:04 INFO  [main] com.jsh.erp.ErpApplication - No active profile set, falling back to default profiles: default
+2022/03/28-18:48:09 INFO  [main] com.jsh.erp.ErpApplication - Started ErpApplication in 5.289 seconds (JVM running for 6.773)
+2022/03/28-18:48:22 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==>  Preparing: SELECT id, platform_key, platform_key_info, platform_value FROM jsh_platform_config WHERE (platform_key = ?) 
+2022/03/28-18:48:22 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==> Parameters: platform_name(String)
+2022/03/28-18:48:22 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - <==      Total: 1
+2022/03/28-18:48:22 DEBUG [http-nio-9999-exec-3] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==>  Preparing: SELECT id, platform_key, platform_key_info, platform_value FROM jsh_platform_config WHERE (platform_key = ?) 
+2022/03/28-18:48:22 DEBUG [http-nio-9999-exec-3] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==> Parameters: platform_url(String)
+2022/03/28-18:48:22 DEBUG [http-nio-9999-exec-3] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - <==      Total: 1
+2022/03/28-18:48:25 ERROR [http-nio-9999-exec-6] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/jshERP-boot].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/jshERP-boot] threw exception
+org.springframework.data.redis.RedisConnectionFailureException: Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:286)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:469)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:132)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:95)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:82)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:211)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:184)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:95)
+	at org.springframework.data.redis.core.DefaultHashOperations.hasKey(DefaultHashOperations.java:66)
+	at com.jsh.erp.service.redis.RedisService.getObjectFromSessionByKey(RedisService.java:57)
+	at com.jsh.erp.filter.LogCostFilter.doFilter(LogCostFilter.java:57)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+	at redis.clients.jedis.Protocol.processError(Protocol.java:127)
+	at redis.clients.jedis.Protocol.process(Protocol.java:161)
+	at redis.clients.jedis.Protocol.read(Protocol.java:215)
+	at redis.clients.jedis.Connection.readProtocolWithCheckingBroken(Connection.java:340)
+	at redis.clients.jedis.Connection.getStatusCodeReply(Connection.java:239)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:96)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1767)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:281)
+	... 44 common frames omitted
+2022/03/28-18:48:25 ERROR [http-nio-9999-exec-9] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/jshERP-boot].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/jshERP-boot] threw exception
+org.springframework.data.redis.RedisConnectionFailureException: Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:286)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:469)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:132)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:95)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:82)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:211)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:184)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:95)
+	at org.springframework.data.redis.core.DefaultHashOperations.hasKey(DefaultHashOperations.java:66)
+	at com.jsh.erp.service.redis.RedisService.getObjectFromSessionByKey(RedisService.java:57)
+	at com.jsh.erp.filter.LogCostFilter.doFilter(LogCostFilter.java:57)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+	at redis.clients.jedis.Protocol.processError(Protocol.java:127)
+	at redis.clients.jedis.Protocol.process(Protocol.java:161)
+	at redis.clients.jedis.Protocol.read(Protocol.java:215)
+	at redis.clients.jedis.Connection.readProtocolWithCheckingBroken(Connection.java:340)
+	at redis.clients.jedis.Connection.getStatusCodeReply(Connection.java:239)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:96)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1767)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:281)
+	... 44 common frames omitted
+2022/03/28-18:48:26 DEBUG [http-nio-9999-exec-5] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==>  Preparing: SELECT id, platform_key, platform_key_info, platform_value FROM jsh_platform_config WHERE (platform_key = ?) 
+2022/03/28-18:48:26 DEBUG [http-nio-9999-exec-5] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==> Parameters: register_flag(String)
+2022/03/28-18:48:26 DEBUG [http-nio-9999-exec-5] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - <==      Total: 1
+2022/03/28-18:48:33 INFO  [http-nio-9999-exec-4] com.jsh.erp.controller.UserController - ============用户登录 login 方法调用开始==============
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ?) 
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String)
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==>  Preparing: SELECT id, tenant_id, login_name, user_num_limit, type, enabled, create_time, expire_time, remark FROM jsh_tenant WHERE (tenant_id = ?) 
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==> Parameters: 132(Long)
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - <==      Total: 1
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND password = ? AND Status = ?) 
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), e10adc3949ba59abbe56e057f20f883e(String), 0(Byte)
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND Status = ?) 
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), 0(Byte)
+2022/03/28-18:48:33 DEBUG [http-nio-9999-exec-4] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:48:33 ERROR [http-nio-9999-exec-4] com.jsh.erp.controller.UserController - Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+2022/03/28-18:49:21 DEBUG [http-nio-9999-exec-7] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==>  Preparing: SELECT id, platform_key, platform_key_info, platform_value FROM jsh_platform_config WHERE (platform_key = ?) 
+2022/03/28-18:49:21 DEBUG [http-nio-9999-exec-7] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==> Parameters: platform_name(String)
+2022/03/28-18:49:21 DEBUG [http-nio-9999-exec-7] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:21 DEBUG [http-nio-9999-exec-8] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==>  Preparing: SELECT id, platform_key, platform_key_info, platform_value FROM jsh_platform_config WHERE (platform_key = ?) 
+2022/03/28-18:49:21 DEBUG [http-nio-9999-exec-8] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==> Parameters: platform_url(String)
+2022/03/28-18:49:21 DEBUG [http-nio-9999-exec-8] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:23 DEBUG [http-nio-9999-exec-2] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==>  Preparing: SELECT id, platform_key, platform_key_info, platform_value FROM jsh_platform_config WHERE (platform_key = ?) 
+2022/03/28-18:49:23 DEBUG [http-nio-9999-exec-2] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - ==> Parameters: register_flag(String)
+2022/03/28-18:49:23 DEBUG [http-nio-9999-exec-2] com.jsh.erp.datasource.mappers.PlatformConfigMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:29 INFO  [http-nio-9999-exec-10] com.jsh.erp.controller.UserController - ============用户登录 login 方法调用开始==============
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ?) 
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String)
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==>  Preparing: SELECT id, tenant_id, login_name, user_num_limit, type, enabled, create_time, expire_time, remark FROM jsh_tenant WHERE (tenant_id = ?) 
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==> Parameters: 132(Long)
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND password = ? AND Status = ?) 
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), e10adc3949ba59abbe56e057f20f883e(String), 0(Byte)
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND Status = ?) 
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), 0(Byte)
+2022/03/28-18:49:29 DEBUG [http-nio-9999-exec-10] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:29 ERROR [http-nio-9999-exec-10] com.jsh.erp.controller.UserController - Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+2022/03/28-18:49:57 INFO  [http-nio-9999-exec-1] com.jsh.erp.controller.UserController - ============用户登录 login 方法调用开始==============
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ?) 
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String)
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==>  Preparing: SELECT id, tenant_id, login_name, user_num_limit, type, enabled, create_time, expire_time, remark FROM jsh_tenant WHERE (tenant_id = ?) 
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==> Parameters: 132(Long)
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND password = ? AND Status = ?) 
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), e10adc3949ba59abbe56e057f20f883e(String), 0(Byte)
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND Status = ?) 
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), 0(Byte)
+2022/03/28-18:49:57 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:49:57 ERROR [http-nio-9999-exec-1] com.jsh.erp.controller.UserController - Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+2022/03/28-18:51:21 INFO  [main] com.jsh.erp.ErpApplication - Starting ErpApplication on FC73807 with PID 9236 (started by FC in D:\Project\Graduation Design\jshERP\jshERP-boot)
+2022/03/28-18:51:21 DEBUG [main] com.jsh.erp.ErpApplication - Running with Spring Boot v2.0.0.RELEASE, Spring v5.0.4.RELEASE
+2022/03/28-18:51:21 INFO  [main] com.jsh.erp.ErpApplication - No active profile set, falling back to default profiles: default
+2022/03/28-18:51:31 INFO  [main] com.jsh.erp.ErpApplication - Started ErpApplication in 10.239 seconds (JVM running for 11.632)
+2022/03/28-18:51:40 INFO  [http-nio-9999-exec-1] com.jsh.erp.controller.UserController - ============用户登录 login 方法调用开始==============
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ?) 
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String)
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==>  Preparing: SELECT id, tenant_id, login_name, user_num_limit, type, enabled, create_time, expire_time, remark FROM jsh_tenant WHERE (tenant_id = ?) 
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - ==> Parameters: 132(Long)
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.TenantMapper.selectByExample - <==      Total: 1
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND password = ? AND Status = ?) 
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), e10adc3949ba59abbe56e057f20f883e(String), 0(Byte)
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==>  Preparing: SELECT id, username, login_name, password, position, department, email, phonenum, ismanager, isystem, Status, description, remark, tenant_id FROM jsh_user WHERE (login_name = ? AND Status = ?) 
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - ==> Parameters: zwj12138(String), 0(Byte)
+2022/03/28-18:51:40 DEBUG [http-nio-9999-exec-1] com.jsh.erp.datasource.mappers.UserMapper.selectByExample - <==      Total: 1
+2022/03/28-18:51:40 ERROR [http-nio-9999-exec-1] com.jsh.erp.controller.UserController - Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisDataException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
+2022/03/28-18:52:33 INFO  [main] com.jsh.erp.ErpApplication - Starting ErpApplication on FC73807 with PID 18140 (started by FC in D:\Project\Graduation Design\jshERP\jshERP-boot)
+2022/03/28-18:52:33 DEBUG [main] com.jsh.erp.ErpApplication - Running with Spring Boot v2.0.0.RELEASE, Spring v5.0.4.RELEASE
+2022/03/28-18:52:33 INFO  [main] com.jsh.erp.ErpApplication - No active profile set, falling back to default profiles: default
+2022/03/28-18:52:38 INFO  [main] com.jsh.erp.ErpApplication - Started ErpApplication in 5.209 seconds (JVM running for 6.293)
